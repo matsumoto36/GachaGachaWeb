@@ -13,25 +13,28 @@
     <body>
         <div id="Gachasite">
             <h1>ガチャサイト</h1>
-            <p>
-                <script>
-                    var kane = 1000;
-                </script>
+            <p id="kane">
+                残高　1000兆円
             </p>
             
-            <input type="button" value="+" onclick="add(kane)">
-            
-            <!--<script>
-                function add(x){
-                    return x + 1000;
+            <script>
+                var kane = 1000;
+                function add(){
+                    kane = kane + 1000;
+                    <!--alert(kane);-->
+                    document.getElementById("kane").textContent = "残高　" + kane + "兆円";
                 }
-                document.write(kane)
-            </script>-->
+                function sub(){
+                    kane = kane - 1000;
+                    document.getElementById("kane").textContent = "残高　" + kane + "兆円";
+                }
+            </script>
+            <input type="submit" value="+" onclick="add()">
             
             <section id="Gacha1">
                 <h2>ガチャ1</h2>
                 <img src="ガチャ画像(仮).png"width="600"height="300"alt="ガチャ1"><br>
-                <input type="button" value="ボタン">
+                <input type="button" value="ボタン" onclick="sub()">
             </section>
             
             <section id="Gacha2">
