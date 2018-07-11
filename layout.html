@@ -5,18 +5,46 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>ガチャガチャ</title>
         <meta name="description" content="An interactive getting started guide for Brackets.">
-        <!--<link href="layout.css>-->
+        <!--<link href="layout.css" rel="stylesheet" media="all">-->
+        <style>
+            @import url(css/layout.css);
+        </style>
     </head>
     <body>
-        
-        <h1>ガチャサイト</h1>
-        <h2>ガチャ1</h2>
-        <img src="ガチャ画像(仮).png"width="600"height="300"alt="ガチャ1"><br>
-        <input type="button" value="ボタン">
-        <h2>ガチャ2</h2>>
-        <img src="ガチャ画像(仮).png"width="600"height="300"alt="ガチャ2">
-        <h2>ガチャ3</h2>
-        <img src="ガチャ画像(仮).png"width="600"height="300"alt="ガチャ3">
-        
+        <div id="Gachasite">
+            <h1>ガチャサイト</h1>
+            <p>
+                <script>
+                    var kane = 1000;
+                </script>
+            </p>
+            
+            <input type="button" value="+" onclick="add(kane)">
+            
+            <!--<script>
+                function add(x){
+                    return x + 1000;
+                }
+                document.write(kane)
+            </script>-->
+            
+            <section id="Gacha1">
+                <h2>ガチャ1</h2>
+                <img src="ガチャ画像(仮).png"width="600"height="300"alt="ガチャ1"><br>
+                <input type="button" value="ボタン">
+            </section>
+            
+            <section id="Gacha2">
+                <h2>ガチャ2</h2>
+                <img src="ガチャ画像(仮).png"width="600"height="300"alt="ガチャ2"><br>
+                <input type="button" value="ボタン">
+            </section>
+            
+            <section id="Gacha3">
+                <h2>ガチャ3</h2>
+                <img src="ガチャ画像(仮).png"width="600"height="300"alt="ガチャ3"><br>
+                <input type="button" value="ボタン">
+            </section>
+        </div>
     </body>
 </html>
