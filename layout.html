@@ -9,6 +9,11 @@
         <style>
             @import url(css/layout.css);
         </style>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        
+        <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+        <script type="text/javascript" src="js/js.js"></script>
+        
     </head>
     <body>
         <div id="Gachasite">
@@ -17,7 +22,7 @@
                 残高　1000兆円
             </p>
             
-            <script>
+            <script><!--残高を制御するscript-->
                 var kane = 1000;
                 function add(){
                     kane = kane + 1000;
@@ -25,29 +30,43 @@
                     document.getElementById("kane").textContent = "残高　" + kane + "兆円";
                 }
                 function sub(){
-                    kane = kane - 1000;
+                    kane = kane - 100;
                     document.getElementById("kane").textContent = "残高　" + kane + "兆円";
                 }
             </script>
+            
             <input type="submit" value="+" onclick="add()">
             
             <section id="Gacha1">
                 <h2>ガチャ1</h2>
-                <img src="ガチャ画像(仮).png"width="600"height="300"alt="ガチャ1"><br>
-                <input type="button" value="ボタン" onclick="sub()">
+                <img id="Gacha1img" src="ガチャ画像(仮).png"width="600"height="300"alt="ガチャ1"><br>
+                <input type="button" value="1回ガチャを引く" onclick="sub()">
+                <input type="button" value="10回ガチャを引く">
             </section>
             
             <section id="Gacha2">
                 <h2>ガチャ2</h2>
-                <img src="ガチャ画像(仮).png"width="600"height="300"alt="ガチャ2"><br>
-                <input type="button" value="ボタン">
+                <img id="Gacha2img" src="ガチャ画像(仮).png"width="600"height="300"alt="ガチャ2"><br>
+                <input type="button" value="ガチャを引く" onclick="sub()">
             </section>
             
             <section id="Gacha3">
                 <h2>ガチャ3</h2>
-                <img src="ガチャ画像(仮).png"width="600"height="300"alt="ガチャ3"><br>
-                <input type="button" value="ボタン">
+                <img id="Gacha3img" src="ガチャ画像(仮).png"width="600"height="300"alt="ガチャ3"><br>
+                <input type="button" value="ガチャを引く" onclick="window.open('Gachawindow.html')">
             </section>
         </div>
+        
+        <div id="modal-main">モーダルウィンドウ</div>
+ 
+<!-- #contents START -->
+          <div id="contents">
+            <p><a id="modal-open">【クリックでモーダルウィンドウを開きます。】</a></p>
+            <p class="page-txt">ここからページ本文<br>
+            <br>
+            ↓↓↓　スクロールしてください ↓↓↓</p>
+          </div>
+<!--/#contents-->
+        
     </body>
 </html>
