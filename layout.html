@@ -9,38 +9,36 @@
         <style>
             @import url(css/layout.css);
         </style>
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         
-        <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
-        <script type="text/javascript" src="js/js.js"></script>
+        <script type="text/javascript" src="js/layout.js"></script>
         
     </head>
     <body>
         <div id="Gachasite">
             <h1>ガチャサイト</h1>
             <p id="kane">
-                残高　1000兆円
+                残高　5000兆円
             </p>
             
-            <script><!--残高を制御するscript-->
-                var kane = 1000;
+            <!--<script><!--残高を制御するscript
+                var kane = 5000;
                 function add(){
                     kane = kane + 1000;
-                    <!--alert(kane);-->
+                    <!--alert(kane);
                     document.getElementById("kane").textContent = "残高　" + kane + "兆円";
                 }
                 function sub(){
                     kane = kane - 100;
                     document.getElementById("kane").textContent = "残高　" + kane + "兆円";
                 }
-            </script>
-            
+            </script>-->
+        
             <input type="submit" value="+" onclick="add()">
             
             <section id="Gacha1">
                 <h2>ガチャ1</h2>
                 <img id="Gacha1img" src="ガチャ画像(仮).png"width="600"height="300"alt="ガチャ1"><br>
-                <input type="button" value="1回ガチャを引く" onclick="sub()">
+                <input type="button" value="1回ガチャを引く" onclick="sub();window.open('http://google.com')">
                 <input type="button" value="10回ガチャを引く">
             </section>
             
@@ -55,18 +53,6 @@
                 <img id="Gacha3img" src="ガチャ画像(仮).png"width="600"height="300"alt="ガチャ3"><br>
                 <input type="button" value="ガチャを引く" onclick="window.open('Gachawindow.html')">
             </section>
-        </div>
-        
-        <div id="modal-main">モーダルウィンドウ</div>
- 
-<!-- #contents START -->
-          <div id="contents">
-            <p><a id="modal-open">【クリックでモーダルウィンドウを開きます。】</a></p>
-            <p class="page-txt">ここからページ本文<br>
-            <br>
-            ↓↓↓　スクロールしてください ↓↓↓</p>
-          </div>
-<!--/#contents-->
-        
+        </div>        
     </body>
 </html>
