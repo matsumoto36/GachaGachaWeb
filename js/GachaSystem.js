@@ -1,15 +1,20 @@
 var RankCount = 5;
 var GachaData = [];
 var GachaProbability = [];
+var pointDataKey = "Point";
+var test = 0;
 
+function Clear(){
+    localStorage.clear();
+}
 
-function AddPoint(point) {
-    var sessionStorage = window.sessionStorage,
-        pointName = "Point";
-    
-   point = sessionStorage.getItem(pointName);
-    
-    sessionStorage.setItem(pointName, point);
+function Get() {
+    var p = localStorage.getItem(pointDataKey);
+    alert(p ? p : 0);
+}
+
+function Set() {
+    localStorage.setItem(pointDataKey, 1000);
 }
 
 function Choose() {
