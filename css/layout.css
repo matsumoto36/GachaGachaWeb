@@ -43,3 +43,17 @@
 #modal-open {
   color: #cc0000;
 }
+#header
+{
+   position: fixed;
+    top: 0;
+    width: 100%;
+}
+.kane
+{
+ float: right;
+}
+#headertext
+{
+text-align: center;    
+}
