@@ -1,0 +1,104 @@
+html {
+    height: 100%;
+    overflow: hidden;    
+    margin 0;
+
+}
+
+
+body {
+    width: 100%;
+    height: 100%;
+    margin 0;
+}
+
+.Contents {
+    width: 100%;
+    height: 100%;    
+    background-color: black;
+    margin 0;
+}
+.GachaImage {
+    width: 100%;
+    height: 80%;
+    background-color: aqua;
+    background-image: url(../src/GachaImage.png);
+}
+
+.ButtonArea {
+    width: 100%;
+    height: 18%;
+}
+
+.ButtonArea input {
+    width: 47%;
+    height: 100%;
+    margin: 1%;
+    float: left;
+    font-size: 15vmin;
+}
+
+.gachaItems {
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+
+.gachaItems ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.gachaItems ul li {
+    margin: 0;
+    padding: 0;
+    display: inline;
+    list-style-type: none;
+}
+
+.gachaItems ul li em, .gachaItems ul li a {
+    margin: 0 6px 0 0;
+    padding: 0 200px;
+    display: block;
+    float: left;
+    width: auto;
+    height: 240px;
+    line-height: 240px;
+    color: #ffffff;
+    background-color: #336699;
+    
+}
+
+.modal-overlay {
+    z-index:2; /*デモではheader,footerをz-index:1にしたので それより上げています*/
+    display:none; /*jsでフェードインされるまでdisplay:none*/
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100vh; /*100vhでビューポートの高さいっぱいになります*/
+    background-color:rgba(0,0,0,.5)} /*これは好きな色・透明度で*/
+a.modal-open:hover {cursor:pointer} /*カーソルをポインタに*/
+.modal-content {
+    position:fixed;
+    display:none; /*jsでフェードインされるまでdisplay:none*/
+    z-index:3; /*オーバーレイより上に*/
+    margin:10px;
+    padding:15px;
+    border-radius:20px;
+    background:#fff}
+.modal-content img {width:auto;max-height:75vh}
+.modal-content h1 {font-size:120%; margin-bottom:0.5em}
+.modal-content p {max-width:565px; text-align:left}
+a.modal-close { /*クローズボタンは何でも好きなスタイルでOK*/
+    position:absolute;
+    top:0;
+    right:10px;
+    color:#b29c33;
+    font-size:35px;
+    line-height:1;
+    font-weight:bold;
+    text-decoration:none}
+a.modal-close:hover {cursor:pointer} /*カーソルをポインタに*/
