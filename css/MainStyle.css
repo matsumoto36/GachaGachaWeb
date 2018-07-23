@@ -43,7 +43,9 @@ body {
     height: 100%;
     margin: 1%;
     float: left;
-    font-size: 15vmin;
+    font-size: 7vmin;
+    text-align: center;
+    align-items: center;
 }
 
 .gachaItems {
@@ -77,6 +79,22 @@ body {
     color: #ffffff;
     background-color: #336699;
     
+}
+
+.Button{
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background: #ffa500;/*ボタン色*/
+    color: #FFF;
+    border-bottom: solid 4px #cc8500;
+    border-radius: 3px;
+}
+.Button:active {/*ボタンを押したとき*/
+    -ms-transform: translateY(4px);
+    -webkit-transform: translateY(4px);
+    transform: translateY(4px);/*下に動く*/
+    border-bottom: none;/*線を消す*/
 }
 
 .modal-overlay {
