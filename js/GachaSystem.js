@@ -52,7 +52,7 @@ function Choose() {
     var item = Math.floor(Math.random() * GachaData[rank].length);
     
     //window.alert(GachaData[rank][item]);
-    var s = GachaItemIcons[rank].src;
+    var s = "src/icons/" + GachaData[rank][item] + ".png";
     document.getElementById("ChooseIcon").src = s;
     
     return true;
