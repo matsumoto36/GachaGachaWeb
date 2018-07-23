@@ -1,9 +1,7 @@
-var RankCount = 5;
+const RankCount = 5;
 var GachaData = [];
 var GachaProbability = [];
-var pointDataKey = "Point";
 var GachaItemIcons = [];
-var GachaWindow;
 
 window.onload = function() {
     LoadGachaData();
@@ -23,17 +21,21 @@ function Set() {
     localStorage.setItem(pointDataKey, 1000);
 }
 
-function OpenGachaWindow() {
-    GachaWindow = window.open("GachaChooseWindow.html", "myWindow", "width=360,height=640,scrollbars=no,resizable=no");
-    //GachaWindow.document.write("<p>ポップアップ表示だよ</p>");
-}
-
 function WindowClose() {
     window.close();
     //window.open('about:blank','_self').close();
 }
 
 function Choose() {
+    
+    //お金を減らす
+    if(window.opener) {
+        if(!window.opener.sub()){
+            alert ("金が足りやがりません");
+            return false;
+        } 
+        
+    }
     
     var rank = RankCount - 1;
     var rankRand = Math.random();
@@ -52,7 +54,8 @@ function Choose() {
     //window.alert(GachaData[rank][item]);
     var s = GachaItemIcons[rank].src;
     document.getElementById("ChooseIcon").src = s;
-
+    
+    return true;
 }
 
 function LoadIcons(){
@@ -82,8 +85,6 @@ function LoadGachaData() {
             console.log(data[i][0] + " " + data[i][1]);
             GachaData[data[i][0]].push(data[i][1]);
         }
-        
-        window.alert("complete");
     });
 }
 
@@ -109,6 +110,9 @@ function ConvertCSVToArray(data) {
 $(function(){
     // 「.modal-open」をクリック
     $('.modal-open').click(function(){
+        
+        if(!Choose()) return;
+        
         // オーバーレイ用の要素を追加
         $('body').append('<div class="modal-overlay"></div>');
         // オーバーレイをフェードイン
