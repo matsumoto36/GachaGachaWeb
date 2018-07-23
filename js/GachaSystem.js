@@ -2,9 +2,15 @@ var RankCount = 5;
 var GachaData = [];
 var GachaProbability = [];
 var pointDataKey = "Point";
-var test = 0;
+var GachaItemIcons = [];
+var GachaWindow;
 
-function Clear(){
+window.onload = function() {
+    LoadGachaData();
+    LoadIcons();
+}
+
+function Clear() {
     localStorage.clear();
 }
 
@@ -15,6 +21,16 @@ function Get() {
 
 function Set() {
     localStorage.setItem(pointDataKey, 1000);
+}
+
+function OpenGachaWindow() {
+    GachaWindow = window.open("GachaChooseWindow.html", "myWindow", "width=360,height=640,scrollbars=no,resizable=no");
+    //GachaWindow.document.write("<p>ポップアップ表示だよ</p>");
+}
+
+function WindowClose() {
+    window.close();
+    //window.open('about:blank','_self').close();
 }
 
 function Choose() {
@@ -33,11 +49,21 @@ function Choose() {
     
     var item = Math.floor(Math.random() * GachaData[rank].length);
     
-    window.alert(GachaData[rank][item]);
+    //window.alert(GachaData[rank][item]);
+    var s = GachaItemIcons[rank].src;
+    document.getElementById("ChooseIcon").src = s;
 
 }
 
-function LoadGachaData(){
+function LoadIcons(){
+    
+    for(var i = 0;i < RankCount;++i){
+        GachaItemIcons[i] = new Image();
+        GachaItemIcons[i].src = "src/sample" + (i + 1) + ".png";
+    }
+}
+
+function LoadGachaData() {
     LoadCSV("data/gachaneta.csv", function(data){
         
         //ガチャの確率を設定
@@ -61,7 +87,7 @@ function LoadGachaData(){
     });
 }
 
-function LoadCSV(url, onloadedData){
+function LoadCSV(url, onloadedData) {
     var req = new XMLHttpRequest();
     req.open("get", url, true);
     req.send(null);
@@ -70,7 +96,7 @@ function LoadCSV(url, onloadedData){
     }
 }
 
-function ConvertCSVToArray(data){
+function ConvertCSVToArray(data) {
     var result = [];
     var temp = data.split("\n");
     
@@ -79,3 +105,50 @@ function ConvertCSVToArray(data){
     }
     return result;
 }
+
+$(function(){
+    // 「.modal-open」をクリック
+    $('.modal-open').click(function(){
+        // オーバーレイ用の要素を追加
+        $('body').append('<div class="modal-overlay"></div>');
+        // オーバーレイをフェードイン
+        $('.modal-overlay').fadeIn('fast');
+
+        // モーダルコンテンツのIDを取得
+        var modal = '#' + $(this).attr('data-target');
+        // モーダルコンテンツの表示位置を設定
+        modalResize();
+         // モーダルコンテンツフェードイン
+        $(modal).fadeIn('fast');
+
+        // 「.modal-overlay」あるいは「.modal-close」をクリック
+        $('.modal-overlay, .modal-close').off().click(function(){
+            // モーダルコンテンツとオーバーレイをフェードアウト
+            $(modal).fadeOut('fast');
+            $('.modal-overlay').fadeOut('fast',function(){
+                // オーバーレイを削除
+                $('.modal-overlay').remove();
+            });
+        });
+
+        // リサイズしたら表示位置を再取得
+        $(window).on('resize', function(){
+            modalResize();
+        });
+
+        // モーダルコンテンツの表示位置を設定する関数
+        function modalResize(){
+            // ウィンドウの横幅、高さを取得
+            var w = $(window).width();
+            var h = $(window).height();
+
+            // モーダルコンテンツの表示位置を取得
+            var x = (w - $(modal).outerWidth(true)) / 2;
+            var y = (h - $(modal).outerHeight(true)) / 2;
+
+            // モーダルコンテンツの表示位置を設定
+            $(modal).css({'left': x + 'px','top': y + 'px'});
+        }
+
+    });
+});
