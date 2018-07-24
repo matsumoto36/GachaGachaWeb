@@ -39,6 +39,6 @@ function Set() {
 }
 
 function OpenGachaWindow() {
-    GachaWindow = window.open("GachaChooseWindow.html", "myWindow", "width=360,height=640,scrollbars=no,resizable=no");
+    GachaWindow = window.open("GachaChooseWindow.html", "ガチャ", "width=360,height=640,scrollbars=no,resizable=no");
     //GachaWindow.document.write("<p>ポップアップ表示だよ</p>");
 }

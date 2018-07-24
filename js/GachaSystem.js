@@ -2,10 +2,10 @@ const RankCount = 5;
 var GachaData = [];
 var GachaProbability = [];
 var GachaItemIcons = [];
+var IsMordalView = false;
 
 window.onload = function() {
     LoadGachaData();
-    LoadIcons();
 }
 
 function Clear() {
@@ -58,14 +58,6 @@ function Choose() {
     return true;
 }
 
-function LoadIcons(){
-    
-    for(var i = 0;i < RankCount;++i){
-        GachaItemIcons[i] = new Image();
-        GachaItemIcons[i].src = "src/sample" + (i + 1) + ".png";
-    }
-}
-
 function LoadGachaData() {
     LoadCSV("data/gachaneta.csv", function(data){
         
@@ -108,10 +100,13 @@ function ConvertCSVToArray(data) {
 }
 
 $(function(){
+    
     // 「.modal-open」をクリック
     $('.modal-open').click(function(){
         
         if(!Choose()) return;
+        if(IsMordalView) return;
+        IsMordalView = true;
         
         // オーバーレイ用の要素を追加
         $('body').append('<div class="modal-overlay"></div>');
@@ -127,6 +122,8 @@ $(function(){
 
         // 「.modal-overlay」あるいは「.modal-close」をクリック
         $('.modal-overlay, .modal-close').off().click(function(){
+            IsMordalView = false;
+            
             // モーダルコンテンツとオーバーレイをフェードアウト
             $(modal).fadeOut('fast');
             $('.modal-overlay').fadeOut('fast',function(){
@@ -134,7 +131,7 @@ $(function(){
                 $('.modal-overlay').remove();
             });
         });
-
+        
         // リサイズしたら表示位置を再取得
         $(window).on('resize', function(){
             modalResize();
@@ -145,6 +142,9 @@ $(function(){
             // ウィンドウの横幅、高さを取得
             var w = $(window).width();
             var h = $(window).height();
+            
+            console.log(w);            
+            console.log(h);
 
             // モーダルコンテンツの表示位置を取得
             var x = (w - $(modal).outerWidth(true)) / 2;
