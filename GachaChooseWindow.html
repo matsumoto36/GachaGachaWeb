@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>サンプル</title>
+        <title>ガチャを引く</title>
         <script src="js/jquery-3.3.1.min.js"></script>
         <script src="js/Define.js"></script>
         <script src="js/GachaSystem.js"></script>
@@ -17,13 +17,21 @@
                 <div class="GachaImage"></div>
             </div>
             <div class="ButtonArea">
-                <input data-target="modal1" class="modal-open Button" type="button" value="ガチャる!" onclick=""> 
+                <input data-target="modal2" class="modal-open Button" type="button" value="ガチャる!" onclick=""> 
                 <input class="Button" type="button" value="閉じる" onclick="WindowClose()">
             </div>
         </div>
         <div id="modal1" class="modal-content">
             <h1>抽選結果</h1>
             <img id="ChooseIcon" src="">
+            <a class="modal-close">×</a>
+        </div>
+        <div id="modal2" class="modal-content">
+            <h1>ポイントが足りません！</h1>
+            <div class="ButtonArea">
+                <input class="modal-close Button" type="button" value="チャージ" onclick="window.opener.add()">
+                <input class="modal-close Button" type="button" value="閉じる" onclick="WindowClose()">
+            </div>
             <a class="modal-close">×</a>
         </div>
     </body>

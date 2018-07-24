@@ -31,7 +31,6 @@ function Choose() {
     //お金を減らす
     if(window.opener) {
         if(!window.opener.sub()){
-            alert ("金が足りやがりません");
             return false;
         } 
         
@@ -103,8 +102,7 @@ $(function(){
     
     // 「.modal-open」をクリック
     $('.modal-open').click(function(){
-        
-        if(!Choose()) return;
+                
         if(IsMordalView) return;
         IsMordalView = true;
         
@@ -114,9 +112,10 @@ $(function(){
         $('.modal-overlay').fadeIn('fast');
 
         // モーダルコンテンツのIDを取得
-        var modal = '#' + $(this).attr('data-target');
+        var modal = '#' + (Choose() ? "modal1" : "modal2");
         // モーダルコンテンツの表示位置を設定
         modalResize();
+
          // モーダルコンテンツフェードイン
         $(modal).fadeIn('fast');
 
