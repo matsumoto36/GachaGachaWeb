@@ -1,3 +1,3 @@
 const pointDataKey = "Point";
 const moneyTextName = "kane";
-const gacha1Play = 100;
+const gacha1Play = 300;
