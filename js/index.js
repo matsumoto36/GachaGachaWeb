@@ -26,7 +26,7 @@ function sub(){
 }
 
 function UpdateMoneyText() {
-    document.getElementById(moneyTextName).textContent = "残高　" + kane + "兆円";
+    document.getElementById(moneyTextName).textContent = "残高　" + kane + "ポイント";
 }
 
 
